@@ -1,215 +1,421 @@
 {
-  "afModelDefinition": {
-    "adaptiveform": "0.10.0",
-    "items": [
-      {
-        "name": "wizard",
-        "label": {
-          "value": "Welcome"
+    "id": "L2NvbnRlbnQvZm9ybXMvYWYvdGVzdHYy",
+    "fieldType": "form",
+    "title": "testv2",
+    "lang": "en",
+    "properties": {
+        "fd:dor": {
+            "dorType": "none"
         },
-        "fieldType" : "panel",
-        ":type": "custom:vertical-tab",
-        "items": [
-          {
-            "name": "step1",
-            "fieldType" : "panel",
-            "label": {
-              "value": "Identify Yourself",
-              "visible": false
-            },
-            "items": [
-              {
-                "fieldType": "plain-text",
-                "richText" : true,
-                "value": "Welcome to <b>Personal Banking</b>"
-              },
-              {
-                "name": "mobileNumber",
-                "fieldType": "text-input",
-                "type": "string",
-                "required": true,
-                "description": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
-                "label": {
-                  "value": "Please share your registered mobile number"
-                }
-              },
-              {
-                "name": "creditCardEndingNumber",
-                "fieldType": "text-input",
-                "type": "string",
-                "required": true,
-                "description": "We will need your credit card number to check your eligibility",
-                "label": {
-                  "value": "Share last 4 digits of your credit card number"
-                }
-              },
-              {
-                "name": "viewEligibilityButton",
-                "fieldType": "button",
-                "label": {
-                  "value": "View Loan Eligibility"
-                }
-              }
-            ]
-          },
-          {
-            "name": "loanDetails",
-            "fieldType": "panel",
-            "type": "object",
-            "label": {
-              "value": "Loan Details"
-            },
-            "items": [
-              {
-                ":type": "custom:slider",
-                "name": "amount",
-                "fieldType": "number-input",
-                "required": true,
-                "default": 600000,
-                "maximum": 1000000,
-                "minimum" : 10000,
-                "step" : 1000,
-                "constraintMessages": {
-                  "minimum": "Loan amount cannot be less than minimum",
-                  "maximum": "Loan amount cannot exceed the maximum limit"
-                },
-                "description": "It doesn't block your credit limit",
-                "label": {
-                  "value": "Choose Loan Amount"
-                }
-              },
-              {
-                ":type": "custom:slider",
-                "name": "duration",
-                "fieldType": "number-input",
-                "required": true,
-                "default": 12,
-                "maximum": 60,
-                "minimum" : 2,
-                "description": "Longer duration = Lower EMI",
-                "label": {
-                  "value": "Choose Loan Duration in Months"
-                }
-              },
-              {
-                ":type": "custom:slider",
-                "name": "rateOfInterest",
-                "default": 8,
-                "maximum": 12,
-                "minimum" : 6,
-                "fieldType": "number-input",
-                "type": "number",
-                "label": {
-                  "value": "Rate of Interest"
-                },
-                "rules": {
-                  "value": "8"
-                }
-              },
-              {
-                "name": "emi",
-                "fieldType": "plain-text",
-                "value": "Monthly EMI"
-              },
-              {
-                "name": "emi",
-                "fieldType": "plain-text",
-                "rules": {
-                  "value": "toString( amount.$value * rateOfInterest.$value / 1200 * power(1 + rateOfInterest.$value / 1200, duration.$value) / (power(1 + rateOfInterest.$value / 1200, duration.$value) - 1))"
-                }
-              },
-              {
-                "name": "addAccountDetails",
-                "fieldType": "button",
-                "label": {
-                  "value": "Add Account Details"
-                }
-              }
-            ]
-          },
-          {
-            "name": "acountDetails",
-            "fieldType": "panel",
-            "type": "object",
-            "label": {
-              "value": "Account Details"
-            },
-            "items": [
-              {
-                "name": "bankName",
-                "fieldType": "drop-down",
-                "required": true,
-                "label": {
-                  "value": "Please provide Name of your Bank"
-                },
-                "enum": [
-                  "HDFC Bank",
-                  "ICICI",
-                  "Kotak"
-                ]
-              },
-              {
-                "name": "acountNumber",
-                "fieldType": "text-input",
-                "type": "string",
-                "required": true,
-                "label": {
-                  "value": "Next, Your Acount Number"
-                },
-                "pattern": "[0-9]{10,10}",
-                "constraintMessages": {
-                  "pattern": "Account number must be 10 digits long.",
-                  "required": "Account number cannot be empty."
-                }
-              },
-              {
-                "name": "acountNumberReEnter",
-                "fieldType": "text-input",
-                "type": "string",
-                "required": true,
-                "label": {
-                  "value": "Kindely re-enter Your Acount Number"
-                },
-                "validationExpression" : "$field == acountNumber",
-                "pattern": "[0-9]{10,10}",
-                "constraintMessages": {
-                  "pattern": "Account number must be 10 digits long.",
-                  "required": "Account number cannot be empty."
-                }
-              },
-              {
-                "name": "ifscCode",
-                "fieldType": "text-input",
-                "type": "string",
-                "required": true,
-                "label": {
-                  "value": "We will now need Your Bank's IFSC"
-                },
-                "description": "You can find it on Your cheque Book"
-              },
-              {
-                "name": "loanOtpConfirmButton",
-                "fieldType": "button",
-                "label": {
-                  "value": "Submit"
-                },
-                "events": {
-                  "click": "if(length(validate()) == 0, submitForm(),{})"
-                }
-              }
-            ]
-          }
+        "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer",
+        "fd:rules": {
+            "validationStatus": "valid"
+        },
+        "fd:schemaType": "FDM",
+        "fd:schemaRef": "/content/dam/formsanddocuments-fdm/rest-fdm-local"
+    },
+    "action": "/adobe/forms/af/submit/L2NvbnRlbnQvZm9ybXMvYWYvdGVzdHYy",
+    "columnCount": 12,
+    "columnClassNames": {
+        "checkboxgroup": "aem-GridColumn aem-GridColumn--default--12",
+        "submit": "aem-GridColumn aem-GridColumn--default--12",
+        "textinput_871013889": "aem-GridColumn aem-GridColumn--default--12",
+        "textinput": "aem-GridColumn aem-GridColumn--default--12",
+        "textinput_933569390": "aem-GridColumn aem-GridColumn--default--12"
+    },
+    "gridClassNames": "aem-Grid aem-Grid--12 aem-Grid--default--12",
+    "events": {
+        "custom:wsdlSuccess_1691388238293": [
+            "dispatchEvent(textinput_8710138891690797132752,'custom:setProperty', {value: toObject($event.payload.body).name})"
+        ],
+        "custom:setProperty": [
+            "$event.payload"
+        ],
+        "submitSuccess": [
+            "request(externalize('/content/forms/af/testv2/jcr:content/guideContainer.af.dermis'),'POST', {operationName:'GET /pet/{petId}',input:toString({petId: textinput1690795980143.$value}),functionToExecute:'invokeFDMOperation',apiVersion:'2',formDataModelId:'/content/dam/formsanddocuments-fdm/rest-fdm-local',runValidation:'false',guideNodePath:'/content/forms/af/testv2/jcr:content/guideContainer'}, {\"Content-Type\" : 'application/x-www-form-urlencoded'}, 'custom:wsdlSuccess_1691388238293','custom:wsdlError_1691388238293')"
         ]
-      }
+    },
+    ":itemsOrder": [
+        "textinput",
+        "textinput_871013889",
+        "textinput_933569390",
+        "checkboxgroup",
+        "submit"
     ],
-    "description": "Sample loan form",
-    "title": "Loan Form",
+    "adaptiveform": "0.12.0",
     "metadata": {
-      "grammar": "json-formula-1.0.0",
-      "version": "1.0.0",
-      "tags": [
-        "loan"
-      ]
-    }
-  }
+        "version": "1.0.0",
+        "grammar": "json-formula-1.0.0"
+    },
+    ":items": {
+        "textinput": {
+            "id": "textinput-fa51dd7282",
+            "fieldType": "text-input",
+            "name": "textinput1690795980143",
+            "type": "string",
+            "label": {
+                "value": "Text Input"
+            },
+            "events": {
+                "custom:setProperty": [
+                    "$event.payload"
+                ]
+            },
+            "properties": {
+                "fd:dor": {
+                    "dorExclusion": false
+                },
+                "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer/textinput",
+                "fd:rules": {
+                    "validationStatus": "valid"
+                }
+            },
+            ":type": "forms-components-examples/components/form/textinput"
+        },
+        "textinput_871013889": {
+            "id": "textinput-b11ee0036b",
+            "fieldType": "text-input",
+            "name": "textinput_8710138891690797132752",
+            "type": "string",
+            "label": {
+                "value": "Text Input"
+            },
+            "events": {
+                "change": [
+                    "if(contains($event.payload.changes[].propertyName, 'value'),navigateTo('https://www.adobe.com', '_newwindow'),{})"
+                ],
+                "custom:setProperty": [
+                    "$event.payload"
+                ]
+            },
+            "properties": {
+                "fd:dor": {
+                    "dorExclusion": false
+                },
+                "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer/textinput_871013889",
+                "fd:rules": {
+                    "validationStatus": "valid"
+                }
+            },
+            ":type": "forms-components-examples/components/form/textinput"
+        },
+        "textinput_933569390": {
+            "id": "textinput-316c6d7bb9",
+            "fieldType": "text-input",
+            "name": "textinput_9335693901690969106922",
+            "type": "string",
+            "label": {
+                "value": "Text Input"
+            },
+            "events": {
+                "custom:setProperty": [
+                    "$event.payload"
+                ]
+            },
+            "properties": {
+                "fd:dor": {
+                    "dorExclusion": false
+                },
+                "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer/textinput_933569390"
+            },
+            ":type": "forms-components-examples/components/form/textinput"
+        },
+        "checkboxgroup": {
+            "id": "checkboxgroup-7faf016b2f",
+            "fieldType": "checkbox-group",
+            "name": "checkboxgroup1691401904450",
+            "type": "number[]",
+            "enforceEnum": true,
+            "enumNames": [
+                "Item 1",
+                " Item 2"
+            ],
+            "label": {
+                "value": "Check Box Group"
+            },
+            "events": {
+                "custom:setProperty": [
+                    "$event.payload"
+                ]
+            },
+            "properties": {
+                "afs:layout": {
+                    "orientation": "horizontal"
+                },
+                "fd:dor": {
+                    "dorExclusion": false
+                },
+                "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer/checkboxgroup"
+            },
+            "enum": [
+                0,
+                1
+            ],
+            ":type": "forms-components-examples/components/form/checkboxgroup"
+        },
+        "submit": {
+            "id": "submit-9f6aad3f38",
+            "fieldType": "button",
+            "name": "submit1690868874197",
+            "type": "string",
+            "buttonType": "submit",
+            "properties": {
+                "fd:dor": {
+                    "dorExclusion": true
+                },
+                "fd:path": "/content/forms/af/testv2/jcr:content/guideContainer/submit",
+                "fd:buttonType": "submit"
+            },
+            "label": {
+                "value": "Submit"
+            },
+            "events": {
+                "click": [
+                    "submitForm('custom:submitSuccess', 'custom:submitError')"
+                ],
+                "custom:setProperty": [
+                    "$event.payload"
+                ]
+            },
+            ":type": "forms-components-examples/components/form/actions/submit"
+        }
+    },
+    "allowedComponents": {
+        "applicable": false,
+        "components": [
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/accordion",
+                "title": "Adaptive Form Accordion"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/button",
+                "title": "Adaptive Form Button"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/checkbox",
+                "title": "Adaptive Form CheckBox"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/checkboxgroup",
+                "title": "Adaptive Form CheckBox Group"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/container",
+                "title": "Adaptive Form Container"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/datepicker",
+                "title": "Adaptive Form Date Picker"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/dropdown",
+                "title": "Adaptive Form Drop-down List"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/emailinput",
+                "title": "Adaptive Form Email Input"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/fileinput",
+                "title": "Adaptive Form File Attachment"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/footer",
+                "title": "Footer"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/image",
+                "title": "Adaptive Form Image"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/numberinput",
+                "title": "Adaptive Form Number Input"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/pageheader",
+                "title": "Header"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/panelcontainer",
+                "title": "Adaptive Form Panel"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/radiobutton",
+                "title": "Adaptive Form Radio Button"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-core-components-it/form/recaptcha",
+                "title": "Adaptive Form reCAPTCHA (v1)"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/actions/reset",
+                "title": "Adaptive Form Reset Button"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/actions/submit",
+                "title": "Adaptive Form Submit Button"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/tabsontop",
+                "title": "Adaptive Form Horizontal Tabs"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/telephoneinput",
+                "title": "Adaptive Form Telephone Input"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/text",
+                "title": "Adaptive Form Text"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/textinput",
+                "title": "Adaptive Form Text Box"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/title",
+                "title": "Adaptive Form Title"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/verticaltabs",
+                "title": "Adaptive Form Vertical Tabs"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/form/wizard",
+                "title": "Adaptive Form Wizard Layout"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/draftsandsubmissions",
+                "title": "Drafts and submissions"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/linkcomponent",
+                "title": "Link"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/searchlister",
+                "title": "Search and Lister"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/accordion",
+                "title": "Accordion"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/aemform",
+                "title": "Adaptive Form - Embed"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/breadcrumb",
+                "title": "Breadcrumb"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/button",
+                "title": "Button"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/carousel",
+                "title": "Carousel"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/demo/component",
+                "title": "Demo Component"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/container",
+                "title": "Container"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/contentfragment",
+                "title": "Content Fragment"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/contentfragmentlist",
+                "title": "Content Fragment List "
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/forms-components-examples/components/demo",
+                "title": "Forms Demo"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/demo",
+                "title": "Demo"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/download",
+                "title": "Download"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/embed",
+                "title": "Embed"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/experiencefragment",
+                "title": "Experience Fragment"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/image",
+                "title": "Image"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/imagev2",
+                "title": "Image V2"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/languagenavigation",
+                "title": "Language Navigation "
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/list",
+                "title": "List"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/navigation",
+                "title": "Navigation"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/pdfviewer",
+                "title": "PDF Viewer"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/progressbar",
+                "title": "Progress Bar"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/search",
+                "title": "Quick Search"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/separator",
+                "title": "Separator"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/sharing",
+                "title": "Social Media Sharing"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/sidebar",
+                "title": "Sidebar"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/tableofcontents",
+                "title": "Table of Contents"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/tabs",
+                "title": "Tabs"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/teaser",
+                "title": "Teaser"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/text",
+                "title": "Text"
+            },
+            {
+                "path": "/content/forms/af/testv2/jcr:content/guideContainer/core-components-examples/components/title",
+                "title": "Title"
+            }
+        ]
+    },
+    ":type": "forms-components-examples/components/form/container"
 }

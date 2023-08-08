@@ -44,10 +44,10 @@ const Form = (props: any) => {
             setForm(JSON.stringify(json))
         }
     }
-    const onSubmit= (action: Action) => {
+    const onSubmit= (action:any) => {
       console.log('Submitting ' + action);
-      const thankyouPage =  action?.payload?.redirectUrl;
-      const thankYouMessage = action?.payload?.thankYouMessage;
+      const thankyouPage =  action?.payload?.body?.redirectUrl;
+      const thankYouMessage = action?.payload?.body?.thankYouMessage;
       if(thankyouPage){
         window.location.replace(thankyouPage);
       }else if(thankYouMessage){
@@ -69,7 +69,7 @@ const Form = (props: any) => {
     if (form != "") {
         const element = document.querySelector(".cmp-formcontainer__content")
         const retVal = (<Spectrum3Provider theme={defaultTheme}>
-            <AdaptiveForm formJson={JSON.parse(form)} mappings={customMappings} onInitialize={onInitialize} onFieldChanged={onFieldChanged} onSubmit={onSubmit}/>
+            <AdaptiveForm formJson={JSON.parse(form)} mappings={customMappings} onInitialize={onInitialize} onFieldChanged={onFieldChanged} onSubmitSuccess={onSubmit}/>
         </Spectrum3Provider>)
         return ReactDOM.createPortal(retVal, element)
     }
