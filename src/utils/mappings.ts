@@ -1,22 +1,64 @@
-/*
-Copyright 2022 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
+/*************************************************************************
+* ADOBE CONFIDENTIAL
+* ___________________
+*
+* Copyright 2023 Adobe
+* All Rights Reserved.
+*
+* NOTICE: All information contained herein is, and remains
+* the property of Adobe and its suppliers, if any. The intellectual
+* and technical concepts contained herein are proprietary to Adobe
+* and its suppliers and are protected by all applicable intellectual
+* property laws, including trade secret and copyright laws.
+* Dissemination of this information or reproduction of this material
+* is strictly forbidden unless prior written permission is obtained
+* from Adobe.
 
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
-*/
-import { mappings } from "@aemforms/af-react-components";
-import RichText from "../components/richtext";
-import Slider from "../components/slider";
+* Adobe permits you to use and modify this file solely in accordance with
+* the terms of the Adobe license agreement accompanying it.
+*************************************************************************/
 
-const customMappings: any = {
-  "custom:slider": Slider,
-  "custom:rich-text": RichText,
-  ...mappings
+import TextField from '../components/TextField';
+import Button from '../components/Button';
+import Panel from '../components/Panel';
+import Checkbox from '../components/Checkbox';
+import RadioGroup from '../components/RadioButtonGroup';
+import ComboBox from '../components/DropDownList';
+import PlainText from '../components/PlainText';
+import FileUploadComponent from '../components/FileUpload';
+import Repeater from '../components/Repeater';
+import NumberField from '../components/NumberField';
+import DateField from '../components/Date';
+import CheckboxGroup from '../components/CheckboxGroup';
+import HorizontalFlex from '../components/flex/HorizontalFlex';
+import VerticalFlex from '../components/flex/VerticalFlex';
+import HorizontalTab from '../components/tabs/HorizontalTabs';
+import VerticalTab from '../components/tabs/VerticalTabs';
+import PasswordField from '../components/Password';
+import Form from '../components/Form';
+import EmailField from '../components/EmailField';
+
+const mappings = {
+    'text-input' : TextField,
+    'multiline-input' : TextField,
+    checkbox : Checkbox,
+    button : Button,
+    panel : Panel,
+    'radio-group' : RadioGroup,
+    'number-input' : NumberField,
+    email : EmailField,
+    'date-input' : DateField,
+    'drop-down' : ComboBox,
+    'plain-text' : PlainText,
+    'file-input' : FileUploadComponent,
+    repeater : Repeater,
+    'checkbox-group': CheckboxGroup,
+    'custom:vertical-flex': VerticalFlex,
+    'custom:horizontal-flex': HorizontalFlex,
+    'custom:vertical-tab': VerticalTab,
+    'custom:horizontal-tab': HorizontalTab,
+    'password-input' : PasswordField,
+    form: Form
 };
 
-export default customMappings;
+export default mappings;
